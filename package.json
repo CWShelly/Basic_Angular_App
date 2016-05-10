@@ -1,0 +1,31 @@
+{
+  "name": "Basic_Angular_App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "entry.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "css-loader": "^0.23.1",
+    "gulp": "^3.9.1",
+    "style-loader": "^0.13.1",
+    "webpack-stream": "^3.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "./node_modules/gulp/bin/gulp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CWShelly/Basic_Angular_App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CWShelly/Basic_Angular_App/issues"
+  },
+  "homepage": "https://github.com/CWShelly/Basic_Angular_App#readme"
+}
