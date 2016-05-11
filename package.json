@@ -11,11 +11,13 @@
     "css-loader": "^0.23.1",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
+    "gulp-protractor": "^2.3.0",
+    "protractor": "^3.3.0",
     "style-loader": "^0.13.1",
     "webpack-stream": "^3.2.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+  
     "gulp": "./node_modules/gulp/bin/gulp.js"
   },
   "repository": {
