@@ -59,7 +59,7 @@
 
         <ul id = "vinylList">
           <li data-ng-repeat="vinyl in vinylctrl.vinyl">
-            <span data-ng-if="!vinyl.editing">This {{vinyl.album}} by {{mug.artist}} was purchased at {{vinyl.purchasedAt}}.</span>
+            <span data-ng-if="!vinyl.editing">This {{vinyl.album}} by {{vinyl.artist}} was purchased at {{vinyl.purchasedAt}}.</span>
             <form data-ng-if="vinyl.editing" data-ng-submit="vinylctrl.updateVinyl(vinyl)">
 
               <label for = "album"> Place</label>
