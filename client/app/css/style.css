@@ -1,3 +1,7 @@
-h1{
+main{
   color:green;
+}
+
+li{
+  list-style: none;
 }
