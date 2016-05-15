@@ -3,8 +3,9 @@
         <meta charset="utf-8">
     </head>
     <body data-ng-app="mvApp">
+      <main>
 
-      <main data-ng-controller = "MugsController as mugsctrl" data-ng-init="mugsctrl.getAll()">
+      <section data-ng-controller = "MugsController as mugsctrl" data-ng-init="mugsctrl.getAll()">
         <form data-ng-submit = "mugsctrl.createMug()">
           <label for = "place"> Place</label>
           <input type = "text" name = "place" data-ng-model= "mugsctrl.newMug.place">
@@ -39,7 +40,46 @@
              <button data-ng-click="mugsctrl.removeMug(mug)">Remove mug</button>
           </li>
         </ul>
-      </main>
+      </section>
+
+
+      <section data-ng-controller = "VinylController as vinylctrl" data-ng-init="vinylctrl.getAll()">
+        <form data-ng-submit = "vinylctrl.createVinyl()">
+          <label for = "album"> Album</label>
+          <input type = "text" name = "Album" data-ng-model= "vinylctrl.newVinyl.album">
+
+          <label for = "artist"> Artist</label>
+          <input type = "text" name = "artist" data-ng-model= "vinylctrl.newVinyl.artist">
+
+          <label for = "purchasedAt"> Purchased at</label>
+          <input type = "text" name = "purchasedAt" data-ng-model= "vinylctrl.newVinyl.purchasedAt">
+          <button type = "submit">Create Vinyl</button>
+        </form>
+
+
+        <ul id = "vinylList">
+          <li data-ng-repeat="vinyl in vinylctrl.vinyl">
+            <span data-ng-if="!vinyl.editing">This {{vinyl.album}} by {{mug.artist}} was purchased at {{vinyl.purchasedAt}}.</span>
+            <form data-ng-if="vinyl.editing" data-ng-submit="vinylctrl.updateVinyl(vinyl)">
+
+              <label for = "album"> Place</label>
+              <input type = "text" name = "album" data-ng-model= "vinyl.album">
+
+              <label for = "artist"> City</label>
+              <input type = "text" name = "artist" data-ng-model= "vinyl.artist">
+
+              <label for = "purchasedAt"> Purchased at</label>
+              <input type = "text" name = "purchasedAt" data-ng-model= "vinyl.purchasedAt">
+              <button type = "submit">Update Vinyl</button>
+              <button data-ng-click = "vinyl.editing = false">Cancel</button>
+            </form>
+
+             <button data-ng-if"!vinyl.editing" data-ng-click="vinyl.editing=true">Edit</button>
+             <button data-ng-click="vinylctrl.removeVinyl(vinyl)">Remove vinyl</button>
+          </li>
+        </ul>
+      </section>
+</main>
         <script type="text/javascript" src="/bundle.js" charset="utf-8"></script>
     </body>
 </html>
