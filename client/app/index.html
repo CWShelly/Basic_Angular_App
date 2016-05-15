@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body data-ng-app="mvApp">
+
+      <main data-ng-controller = "MugsController as mugsctrl" data-ng-init="mugsctrl.getAll()">
+        <form data-ng-submit = "mugsctrl.createMug()">
+          <label for = "place"> Place</label>
+          <input type = "text" name = "place" data-ng-model= "mugsctrl.newMug.place">
+
+          <label for = "city"> City</label>
+          <input type = "text" name = "city" data-ng-model= "mugsctrl.newMug.city">
+
+          <label for = "drinkPref"> Drink Pref</label>
+          <input type = "text" name = "drinkPref" data-ng-model= "mugsctrl.newMug.drinkPref">
+          <button type = "submit">Create Mug</button>
+        </form>
+
+
+        <ul id = "mugList">
+          <li data-ng-repeat="mug in mugsctrl.mugs">
+            <span data-ng-if="!mug.editing">Got this mug at {{mug.place}} in {{mug.city}}. I fill it with {{mug.drinkPref}}.</span>
+            <form data-ng-if="mug.editing" data-ng-submit="mugsctrl.updateMug(mug)">
+
+              <label for = "place"> Place</label>
+              <input type = "text" name = "place" data-ng-model= "mug.place">
+
+              <label for = "city"> City</label>
+              <input type = "text" name = "city" data-ng-model= "mug.city">
+
+              <label for = "drinkPref"> Drink Pref</label>
+              <input type = "text" name = "drinkPref" data-ng-model= "mug.drinkPref">
+              <button type = "submit">Update Mug</button>
+              <button data-ng-click = "mug.editing = false">Cancel</button>
+            </form>
+
+             <button data-ng-if"!mug.editing" data-ng-click="mug.editing=true">Edit</button>
+             <button data-ng-click="mugsctrl.removeMug(mug)">Remove mug</button>
+          </li>
+        </ul>
+      </main>
+        <script type="text/javascript" src="/bundle.js" charset="utf-8"></script>
+    </body>
+</html>
