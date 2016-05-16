@@ -12,6 +12,20 @@ gulp.task('webpack:dev', () => {
 
 });
 
+gulp.task('webpack:mugstest', () => {
+  gulp.src('test/unit/mugs/test_entry.js')
+  .pipe(webpack(require('./webpack.config.js')
+  ))
+  .pipe(gulp.dest('./test/unit/mugs'));
+});
+
+gulp.task('webpack:vinyltest', () => {
+  gulp.src('test/unit/vinyl/test_entry.js')
+  .pipe(webpack(require('./webpack.config.js')
+  ))
+  .pipe(gulp.dest('./test/unit/vinyl'));
+});
+
 gulp.task('startservers:test', () => {
   children.push(cp.fork('server.js'));
   children.push(cp.spawn('webdriver-manager', ['start']));
@@ -52,6 +66,7 @@ gulp.task('static:dev', () => {
 
 
 gulp.task('protractor:tests', ['startservers:test', 'protractor:mugtest', 'protractor:vinyltest']);
+
 gulp.task('build:dev', ['webpack:dev', 'static:dev']);
 
 gulp.task('default', ['build:dev']);
