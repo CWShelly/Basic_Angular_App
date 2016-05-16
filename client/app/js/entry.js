@@ -9,7 +9,6 @@ var handleError = function(error) {
   this.errors = (this.errors || []).push(error);
 };
 
-
 mvApp.controller('MugsController', ['$http', function($http) {
   this.mugs = [];
   this.getAll = () => {
@@ -43,9 +42,6 @@ mvApp.controller('MugsController', ['$http', function($http) {
   };
 
 }]);
-
-
-
 
 mvApp.controller('VinylController', ['$http', function($http) {
   this.vinyl = [];
