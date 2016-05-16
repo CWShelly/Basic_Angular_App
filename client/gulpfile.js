@@ -80,6 +80,7 @@ gulp.task('static:dev', () => {
 });
 
 gulp.task('lint:files', ['lint:client', 'lint:server']);
+
 gulp.task('protractor:tests', ['startservers:test', 'protractor:mugtest', 'protractor:vinyltest']);
 
 gulp.task('build:dev', ['webpack:dev', 'static:dev']);
