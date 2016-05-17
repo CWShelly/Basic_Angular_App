@@ -8,11 +8,11 @@ const port = 1237;
 const Mug = require(__dirname + '/../models/mug');
 var server;
 
-const app = require(__dirname + '/../server');
+const app = require(__dirname + '/../_server');
 
 describe('the requests', () => {
   before((done) => {
-    server = app(port, 'mongodb://localhost/testmv_db', console.log('server up on' + port));
+    this.server = app(port, 'mongodb://localhost/testmv_db', console.log('server up on' + port));
 
     var newMug = new Mug({ place: 'testPlace', city: 'testCity', drinkPref: 'testDrink' });
     newMug.save((err, data) => {
@@ -26,7 +26,7 @@ describe('the requests', () => {
 
     mongoose.connection.db.dropDatabase(() => {
       mongoose.disconnect(() => {
-        server.close(() => {
+        this.server.close(() => {
           done();
         });
       });
@@ -48,7 +48,6 @@ describe('the requests', () => {
   it('should add on post', (done) => {
     request('localhost:' + port)
     .post('/api/mugs')
-    .set('token', this.token)
     .send({ place: 'testPlace2', city: 'testCity2', drinkPref: 'testDrink2' } )
     .end((err, res) => {
       console.log(err);
@@ -61,7 +60,6 @@ describe('the requests', () => {
   it('should update on put', (done) => {
     request('localhost:' + port)
     .put('/api/mugs/' + this.mug._id)
-    .set('token', this.token)
     .send({ place: 'testPlace3', city: 'testCity3', drinkPref: 'testDrink3' })
     .end((err, res) => {
       expect(err).to.eql(null);
@@ -74,7 +72,6 @@ describe('the requests', () => {
   it('should remove a record on delete', (done) => {
     request('localhost:' + port)
     .delete('/api/mugs/' + this.mug._id)
-    .set('token', this.token)
     .end((err, res) => {
       expect(err).to.eql(null);
       expect(res.status).to.eql(200);
