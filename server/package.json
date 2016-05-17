@@ -13,5 +13,13 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "mongoose": "^4.4.17"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "gulp-util": "^3.0.7",
+    "mocha": "^2.4.5"
   }
 }

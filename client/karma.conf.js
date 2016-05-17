@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Mon May 16 2016 00:11:32 GMT-0700 (PDT)
+// Generated on Mon May 16 2016 21:01:20 GMT-0700 (PDT)
 
 module.exports = function(config) {
   config.set({
@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/unit/mugs/bundle.js'
+      './karma_bundles/mugs/bundle.js'
     ],
 
 

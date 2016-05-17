@@ -1,5 +1,4 @@
 
-require('../css/style.css');
 const angular = require('angular');
 const mvApp = angular.module('mvApp', []);
 const baseUrl = 'http://localhost:4000';

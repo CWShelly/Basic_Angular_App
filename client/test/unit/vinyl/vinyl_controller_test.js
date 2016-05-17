@@ -28,7 +28,8 @@ describe('vinyl controller', function() {
     });
 
     it('should send a GET to retrieve vinyls', function() {
-      $httpBackend.expectGET('http://localhost:4000/api/vinyl').respond(200, [{ album: 'test album' }]);
+      $httpBackend.expectGET('http://localhost:4000/api/vinyl').respond(200,
+           [{ album: 'test album' }]);
       mugsctrl.getAll();
       $httpBackend.flush();
       expect(vinylctrl.vinyl.length).toBe(1);
@@ -36,7 +37,8 @@ describe('vinyl controller', function() {
     });
 
     it('should create a vinyl', function() {
-      $httpBackend.expectPOST('http://localhost:4000/api/vinyl', { album:'La Jolla' }).respond(200, { album: 'some album' });
+      $httpBackend.expectPOST('http://localhost:4000/api/vinyl',
+      { album: 'La Jolla' }).respond(200, { album: 'some album' });
       expect(vinylctrl.mugs.length).toBe(0);
       vinylctrl.newVinyl = { place: 'La Jolla' };
       vinylctrl.createVinyl();
@@ -46,8 +48,9 @@ describe('vinyl controller', function() {
     });
 
     it('should update a vinyl', function() {
-      $httpBackend.expectPUT('http://localhost:4000/api/vinyl/1', { place:'change vinyls!', editing: true, _id: 1 }).respond(200);
-      vinylctrl.vinyl = [{ album:'test album', editing: true, _id:1 }];
+      $httpBackend.expectPUT('http://localhost:4000/api/vinyl/1',
+       { place: 'change vinyls!', editing: true, _id: 1 }).respond(200);
+      vinylctrl.vinyl = [{ album: 'test album', editing: true, _id: 1 }];
       vinylctrl.vinyl[0].album = 'change vinyls!';
       vinylctrl.updateVinyl(vinylctrl.vinyl[0]);
       $httpBackend.flush();
