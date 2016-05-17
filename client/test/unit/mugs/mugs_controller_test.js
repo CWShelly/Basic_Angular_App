@@ -36,7 +36,9 @@ describe('mugs controller', function() {
     });
 
     it('should create a mug', function() {
-      $httpBackend.expectPOST('http://localhost:4000/api/mugs', { place:'La Jolla' }).respond(200, { place: 'some place' });
+      $httpBackend.expectPOST('http://localhost:4000/api/mugs',
+      { place: 'La Jolla' }).respond(200,
+           { place: 'some place' });
       expect(mugsctrl.mugs.length).toBe(0);
       mugsctrl.newMug = { place: 'La Jolla' };
       mugsctrl.createMug();
@@ -46,8 +48,12 @@ describe('mugs controller', function() {
     });
 
     it('should update a mug', function() {
-      $httpBackend.expectPUT('http://localhost:4000/api/mugs/1', { place:'change mugs!', editing: true, _id: 1 }).respond(200);
-      mugsctrl.mugs = [{ place:'test place', editing: true, _id:1 }];
+      $httpBackend.expectPUT('http://localhost:4000/api/mugs/1', {
+        place: 'change mugs!',
+        editing: true, _id: 1 }).respond(200);
+      mugsctrl.mugs = [{
+        place: 'test place',
+        editing: true, _id: 1 }];
       mugsctrl.mugs[0].place = 'change mugs!';
       mugsctrl.updateMug(mugsctrl.mugs[0]);
       $httpBackend.flush();

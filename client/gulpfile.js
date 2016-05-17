@@ -27,18 +27,23 @@ gulp.task('webpack:dev', () => {
 
 });
 
+gulp.task('css:dev', () => {
+  gulp.src('app/css./**/*.css')
+  .pipe(gulp.dest('./build'));
+});
+
 gulp.task('webpack:mugstest', () => {
   gulp.src('test/unit/mugs/test_entry.js')
   .pipe(webpack(require('./webpack.config.js')
   ))
-  .pipe(gulp.dest('./test/unit/mugs'));
+  .pipe(gulp.dest('./karma_bundles/mugs'));
 });
 
 gulp.task('webpack:vinyltest', () => {
   gulp.src('test/unit/vinyl/test_entry.js')
   .pipe(webpack(require('./webpack.config.js')
   ))
-  .pipe(gulp.dest('./test/unit/vinyl'));
+  .pipe(gulp.dest('./karma_bundles/vinyl'));
 });
 
 gulp.task('startservers:test', () => {
@@ -83,6 +88,6 @@ gulp.task('lint:files', ['lint:client', 'lint:server']);
 
 gulp.task('protractor:tests', ['startservers:test', 'protractor:mugtest', 'protractor:vinyltest']);
 
-gulp.task('build:dev', ['webpack:dev', 'static:dev']);
+gulp.task('build:dev', ['webpack:dev', 'static:dev', 'css:dev']);
 
 gulp.task('default', ['build:dev']);
