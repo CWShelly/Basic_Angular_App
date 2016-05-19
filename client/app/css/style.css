@@ -5,3 +5,8 @@ main{
 li{
   list-style: none;
 }
+
+button{
+  background-color: green;
+  color:white;
+}
