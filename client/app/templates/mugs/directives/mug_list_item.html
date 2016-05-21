@@ -1,0 +1,6 @@
+<li>
+<ng-transclude></ng-transclude>
+<span data-ng-if="!mug.editing">Picked up this mug at {{mug.place}} from {{mug.city}}. I fill it with {{mug.drinkPref}}</span>
+<button data-ng-if="!mug.editing" data-ng-click="mug.editing=true">Edit</button>
+<button data-ng-click="remove(mug)">Remove Mug</button>
+</li>

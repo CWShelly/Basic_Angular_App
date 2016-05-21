@@ -1,0 +1,12 @@
+<form data-ng-submit = "save(vinyl)">
+     <label for = "album"> Album</label>
+     <input type = "text" name = "album" data-ng-model= "vinyl.album">
+
+     <label for = "artist"> Artist</label>
+     <input type = "text" name = "artist" data-ng-model= "vinyl.artist">
+
+     <label for = "purchasedAt"> Purchased at</label>
+     <input type = "text" name = "purchasedAt" data-ng-model= "vinyl.purchasedAt">
+     <button type = "submit">{{buttonText}}</button>
+     <ng-transclude></ng-transclude>
+   </form>
