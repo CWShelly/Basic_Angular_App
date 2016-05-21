@@ -1,0 +1,6 @@
+<li>
+<ng-transclude></ng-transclude>
+<span data-ng-if="!vinyl.editing">Picked up {{vinyl.album}} by {{vinyl.artist}} at {{vinyl.purchasedAt}}</span>
+<button data-ng-if="!vinyl.editing" data-ng-click="vinyl.editing=true">Edit</button>
+<button data-ng-click="remove(vinyl)">Remove Vinyl</button>
+</li>

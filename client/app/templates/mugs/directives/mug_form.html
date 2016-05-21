@@ -1,0 +1,12 @@
+<form data-ng-submit = "save(mug)">
+     <label for = "place"> Placex</label>
+     <input type = "text" name = "place" data-ng-model= "mug.place">
+
+     <label for = "city"> City</label>
+     <input type = "text" name = "city" data-ng-model= "mug.city">
+
+     <label for = "drinkPref"> Drink Pref</label>
+     <input type = "text" name = "drinkPref" data-ng-model= "mug.drinkPref">
+     <button type = "submit">{{buttonText}}</button>
+     <ng-transclude></ng-transclude>
+   </form>
