@@ -53,7 +53,7 @@ gulp.task('startservers:test', () => {
   children.push(cp.fork('../server/server', [], { env: { MONGO_URI: mongoUri } }));
 });
 
-gulp.task('protractor:mugtest', () => {
+gulp.task('protractor:e2etest', () => {
   gulp.src('test/integration/**/*spec.js')
   .pipe(protractor({
     configFile: 'test/integration/mugs/config.js'
@@ -63,20 +63,9 @@ gulp.task('protractor:mugtest', () => {
       child.kill('SIGTERM');
     });
   });
+
 });
 
-
-gulp.task('protractor:vinyltest', () => {
-  gulp.src('test/integration/vinyl/*spec.js')
-  .pipe(protractor({
-    configFile: 'test/integration/vinyl/config.js'
-  }))
-  .on('end', () => {
-    children.forEach((child) => {
-      child.kill('SIGTERM');
-    });
-  });
-});
 
 gulp.task('static:dev', () => {
   gulp.src('app/**/*.html')
@@ -86,7 +75,8 @@ gulp.task('static:dev', () => {
 
 gulp.task('lint:files', ['lint:client', 'lint:server']);
 
-gulp.task('protractor:tests', ['startservers:test', 'protractor:mugtest', 'protractor:vinyltest']);
+gulp.task('protractor:tests', ['startservers:test', 'protractor:e2etest']);
+
 
 gulp.task('build:dev', ['webpack:dev', 'static:dev', 'css:dev']);
 
