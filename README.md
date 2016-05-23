@@ -1,23 +1,28 @@
 # Basic_Angular_App
 
-This is a two resource CRUD app that uses angular for data binding.
+#This is a two resource (mugs and vinyl) CRUD app that uses angular for data binding.
 
 To use:
-Install the dependencies by running npm install.
+Install the dependencies by running npm install. Gulp, Protractor, and Mocha should be also be installed globally (npm install -g [package]). Note:
 
-1. Navigate to the client folder and run $ gulp. Gulp should be installed globally as well as locally.
-2. In a new terminal window, open a mongo shell via mongod.
-3. In a new terminal window, run the client server by entering $node server.
-4. In a new terminal window, navigate to the project root directory, then to the server folder. Run $node server.
-5. Launch your browser. In the address bar, enter "localhost:5000".
-6. To POST, enter corresponding input information in the input boxes provided, then click on either the 'Create Mug' or 'Create Vinyl' depending on what record you want to create.
-7. To PUT, click the 'Edit' button, and edit the information. Save and update by clicking 'Update Mug'.
-8. To Delete, click either "Remove Vinyl" or "Remove Mug" depending on which record you want to delete.
-9. GET occurs when you refresh the page.
+From the project root directory:
+1. $ cd client && gulp && gulp start.
+2. Open your browser, and navigate to localhost:5000.
 
-Running e2e tests. Protractor should be installed globally as well as locally.
-1. Navigate to the client folder. In the terminal window, run gulp:protractor:tests.
+Mugs:
+3. To POST a new mug record, fill in the fields next to "Place", "City", and "Drink Pref", then click "Create Mug!".
+4. To edit an existing mug record, click the "Edit" button, and make the desired changes via the provided input fields. Save your changes by clicking "Update Mug!" If you don't want to edit your mug, but you've already clicked "Edit", just click "Cancel".
+5. To DELETE a mug, click the "Remove Mug" that's next to the record you want to remove.
 
-Running unit tests. Karma should be installed globally as well as locally.
-1. Mugs: Navigate to the client folder. In the terminal window, run gulp:weback:mugstest. Then run karma start.
-2. Vinyl: Navigate to the client folder. In the terminal window, run gulp: webpack:vinyltest. Then run karma start.
+Vinyl:
+3. To POST a new vinyl record, fill in the fields next to "Abum", "Artist", and "Purchased At", then click "Create Vinyl!".
+4. To edit an existing mug record, click the "Edit" button, and make the desired changes via the provided input fields. Save your changes by clicking "Update Vinyl!" If you don't want to edit your vinyl, but you've already clicked "Edit", just click "Cancel".
+5. To DELETE a vinyl, click the "Remove vinyl" that's next to the record you want to remove.
+
+Integration Testing:
+* $gulp integration:test
+
+Mocha Testing:
+1. $cd .. && cd server
+2. gulp mugs
+3. gulp vinyl

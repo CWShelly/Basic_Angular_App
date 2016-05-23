@@ -30,7 +30,7 @@ describe('vinyl controller', function() {
     it('should send a GET to retrieve vinyls', function() {
       $httpBackend.expectGET('http://localhost:4000/api/vinyl').respond(200,
            [{ album: 'test album' }]);
-      mugsctrl.getAll();
+      vinylctrl.getAll();
       $httpBackend.flush();
       expect(vinylctrl.vinyl.length).toBe(1);
       expect(vinylctrl.vinyl[0].album).toBe('test vinyl');

@@ -75,9 +75,10 @@ gulp.task('static:dev', () => {
 
 gulp.task('lint:files', ['lint:client', 'lint:server']);
 
-gulp.task('protractor:tests', ['startservers:test', 'protractor:e2etest']);
+gulp.task('integration:test', ['startservers:test', 'protractor:e2etest']);
 
+gulp.task('start', ['startservers:test']);
 
-gulp.task('build:dev', ['startservers:test', 'webpack:dev', 'static:dev', 'css:dev']);
+gulp.task('build:dev', ['webpack:dev', 'static:dev', 'css:dev', 'lint:files']);
 
 gulp.task('default', ['build:dev']);

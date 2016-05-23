@@ -6,7 +6,7 @@ const request = chai.request;
 const mongoose = require('mongoose');
 const port = 1238;
 const Vinyl = require(__dirname + '/../models/vinyls');
-var server;
+
 const app = require(__dirname + '/../_server');
 
 
