@@ -37,6 +37,6 @@ Integration Testing: <Enter>
 
 Mocha Testing: <Enter>
 
-1. $cd .. && cd server <Enter>
+1. From the "client" folder: $cd .. && cd server <Enter>
 2. gulp mugs <Enter>
 3. gulp vinyl <Enter>
