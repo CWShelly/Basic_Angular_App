@@ -1,7 +1,10 @@
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const mocha = require('gulp-mocha');
-const gutil = require('gulp-util');
+// const gutil = require('gulp-util');
+const cp = require('child_process');
+const mongoUri = 'mongodb://localhost/test_mvserver';
+var children = [];
 
 var files = ['lib/**/*.js',
  'test/**/*.js',
@@ -12,12 +15,37 @@ var files = ['lib/**/*.js',
   'server.js',
 '_server.js'];
 
-gulp.task('mocha', () => {
-  return gulp.src(['./test/**/*test.js'], { read: false })
+gulp.task('startservers:test', () => {
+  // children.push(cp.fork('server.js'));
+  children.push(cp.spawn('webdriver-manager', ['start']));
+  children.push(cp.spawn('mongod', ['--dbpath=./db']));
+  children.push(cp.fork('server.js', [], { env: { MONGO_URI: mongoUri } }));
+});
+
+
+gulp.task('mocha:vinyltest', ['startservers:test'], () => {
+  return gulp.src(['./test/vinyl_test.js'], { read: false })
   .pipe(mocha({
     reporter: 'nyan'
   }))
-  .on('error', gutil.log);
+  .on('end', () => {
+    children.forEach((child) => {
+      child.kill('SIGTERM');
+    });
+  });
+});
+gulp.task('mocha:mugstest', ['startservers:test'], () => {
+  return gulp.src(['./test/mugs_test.js'], { read: false })
+  .pipe(mocha({
+    reporter: 'nyan'
+  }))
+  .on('end', () => {
+    children.forEach((child) => {
+      child.kill('SIGTERM');
+    });
+
+  });
+
 });
 
 gulp.task('lint:test', () => {
@@ -43,10 +71,14 @@ gulp.task('lint:nontest', () => {
   .pipe(eslint.format());
 });
 
-gulp.task('watch-files', ['mocha'], () => {
-  gulp.watch(files, ['mocha']);
+gulp.task('watch-files', ['lint:test'], () => {
   gulp.watch(files, ['lint:test']);
   gulp.watch(files, ['lint:nontest']);
 });
+
+
+gulp.task('vinyl', ['startservers:test', 'mocha:mugstest']);
+gulp.task('mugs', ['startservers:test', 'mocha:vinyltest']);
+
 gulp.task('server', ['watch-files']);
 gulp.task('default', ['server']);

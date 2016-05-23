@@ -16,7 +16,7 @@ describe('all the mugs', function() {
     element(by.model('vinyl.purchasedAt')).sendKeys('test store');
     element(by.buttonText('Create Vinyl!')).click();
     element.all(by.repeater('VinylController as vinylctrl')).getText(function(text) {
-      expect(text).toEqual('test album by test artist was purchased at test store');
+      expect(text).toEqual('Picked up test album by test artist at test store');
     });
   });
 
