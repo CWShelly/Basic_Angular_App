@@ -1,5 +1,7 @@
 const gulp = require('gulp');
 const protractor = require('gulp-protractor').protractor;
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
 const cp = require('child_process');
 const eslint = require('gulp-eslint');
 const webpack = require('webpack-stream');
@@ -8,6 +10,19 @@ var children = [];
 
 var serverFiles = ['../server.js', '../lib/**/*.js', '../test/**/*.js'];
 var clientFiles = ['app/**/*.js', 'server.js', 'gulpfile.js', 'test/**/*.js'];
+
+gulp.task('sass:dev', () => {
+  return gulp.src('./app/sass/style.sass')
+  .pipe(sourcemaps.init())
+  .pipe(sass())
+  .pipe(sourcemaps.write('./'))
+  .pipe(gulp.dest('./app/css'));
+});
+
+gulp.task('css:dev', () => {
+  gulp.src('app/css/**/*.css')
+  .pipe(gulp.dest('./build'));
+});
 
 gulp.task('lint:server', () => {
   return gulp.src(serverFiles)
@@ -27,10 +42,7 @@ gulp.task('webpack:dev', () => {
 
 });
 
-gulp.task('css:dev', () => {
-  gulp.src('app/css/**/*.css')
-  .pipe(gulp.dest('./build'));
-});
+
 
 gulp.task('webpack:mugstest', () => {
   gulp.src('test/unit/mugs/test_entry.js')
@@ -78,7 +90,9 @@ gulp.task('lint:files', ['lint:client', 'lint:server']);
 gulp.task('integration:test', ['startservers:test', 'protractor:e2etest']);
 
 gulp.task('start', ['startservers:test']);
+gulp.task('buid:css', ['sass']);
 
+// gulp.task('build:dev', ['webpack:dev', 'static:dev', 'lint:files']);
 gulp.task('build:dev', ['webpack:dev', 'static:dev', 'css:dev', 'lint:files']);
 
 gulp.task('default', ['build:dev']);

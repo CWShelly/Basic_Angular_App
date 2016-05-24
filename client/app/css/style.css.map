@@ -1,0 +1,1 @@
+{"version":3,"file":"style.css","sources":["style.sass"],"sourcesContent":["$myColor: red;\n\nsection {\n  color: $myColor; }\n"],"mappings":"AAEA,AAAA,OAAO,CAAC;EACN,KAAK,EAHG,GAAG,GAGO","names":[],"sourceRoot":"/source/"}
