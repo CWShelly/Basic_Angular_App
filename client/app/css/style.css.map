@@ -1,1 +1,1 @@
-{"version":3,"file":"style.css","sources":["style.sass"],"sourcesContent":["$myColor: red;\n\nsection {\n  color: $myColor; }\n"],"mappings":"AAEA,AAAA,OAAO,CAAC;EACN,KAAK,EAHG,GAAG,GAGO","names":[],"sourceRoot":"/source/"}
+{"version":3,"file":"style.css","sources":["style.sass","../smaccs/base.sass"],"sourcesContent":["@import '../smaccs/base';\n\n\n//\n// $myColor: red\n//\n// section\n//      color: $myColor\n","\n$myColor: purple;\n\nsection {\n     color: $myColor; }\n"],"mappings":"ACGA,AAAA,OAAO,CAAC;EACH,KAAK,EAHA,MAAM,GAGO","names":[],"sourceRoot":"/source/"}
