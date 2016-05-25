@@ -1,5 +1,16 @@
 
 $myColor: purple
 
+=btn-background($btn-background)
+  background-color: $btn-background
+
+
+button
+  +btn-background(blue)
+
 section
-     color: $myColor
+    ul
+      li
+      font-size: 1 em
+      color: $myColor
+      list-style: none

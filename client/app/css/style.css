@@ -1,4 +1,16 @@
-section {
-  color: purple; }
+ul {
+  margin: 0;
+  padding: 0; }
+
+#vinyllist {
+  color: yellow; }
+
+button {
+  background-color: blue; }
+
+section ul {
+  font-size: 1 em;
+  color: purple;
+  list-style: none; }
 
 /*# sourceMappingURL=style.css.map */
