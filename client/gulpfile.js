@@ -56,6 +56,13 @@ gulp.task('webpack:vinyltest', () => {
   .pipe(gulp.dest('./karma_bundles/vinyl'));
 });
 
+gulp.task('webpack:errorstest', () => {
+  gulp.src('test/unit/entry.js')
+  .pipe(webpack(require('./webpack.config.js')
+))
+.pipe(gulp.dest('./karma_bundles/errors'));
+});
+
 gulp.task('startservers:test', () => {
   children.push(cp.fork('server.js'));
   children.push(cp.spawn('webdriver-manager', ['start']));

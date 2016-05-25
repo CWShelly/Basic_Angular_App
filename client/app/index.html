@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="style.css">
     <body data-ng-app="mvApp">
       <main>
-        <h1>Mugs and Vinyl</h1>
 
       <section data-ng-controller = "MugsController as mugsctrl" data-ng-init="mugsctrl.getAll()">
+
+        <li data-ng-repeat = "error in mugsctrl.errors">{{error.message}}<button data-ng-click="mugsctrl.errors.splice(mugsctrl.errors.indexOf(error),1)">acknowledge</button></li>
+
         <mugs-form
           data-button-text="Create Mug!"
           data-action="create"
@@ -31,6 +33,8 @@
 
 
       <section data-ng-controller = "VinylController as vinylctrl" data-ng-init="vinylctrl.getAll()">
+
+        <li data-ng-repeat = "error in vinylctrl.errors">{{error.message}}<button data-ng-click="vinylctrl.errors.splice(vinylctrl.errors.indexOf(error),1)">acknowledge</button></li>
 
         <vinyl-form
         data-button-text="Create Vinyl!"
