@@ -12,7 +12,7 @@ var serverFiles = ['../server.js', '../lib/**/*.js', '../test/**/*.js'];
 var clientFiles = ['app/**/*.js', 'server.js', 'gulpfile.js', 'test/**/*.js'];
 
 gulp.task('sass:dev', () => {
-  return gulp.src('./app/sass/style.sass')
+  return gulp.src('./app/style/sass/style.sass')
   .pipe(sourcemaps.init())
   .pipe(sass())
   .pipe(sourcemaps.write('./'))
@@ -41,8 +41,6 @@ gulp.task('webpack:dev', () => {
     .pipe(gulp.dest('./build'));
 
 });
-
-
 
 gulp.task('webpack:mugstest', () => {
   gulp.src('test/unit/mugs/test_entry.js')
