@@ -19,7 +19,7 @@ gulp.task('sass:dev', () => {
   .pipe(gulp.dest('./app/css'));
 });
 
-gulp.task('css:dev', () => {
+gulp.task('css:dev', ['sass:dev'], () => {
   gulp.src('app/css/**/*.css')
   .pipe(gulp.dest('./build'));
 });
