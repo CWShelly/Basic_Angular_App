@@ -26,9 +26,5 @@ module.exports = function(app) {
       });
     };
     this.removeMug = remote.remove.bind(remote);
-    // this.removeMug = () => {
-    //   this.serviceMinusCount();
-    //   remote.remove.bind(remote);
-    // };
   }]);
 };
