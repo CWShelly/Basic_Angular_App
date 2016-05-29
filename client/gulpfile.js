@@ -83,7 +83,7 @@ gulp.task('startservers:test', () => {
 });
 
 gulp.task('protractor:e2etest', () => {
-  gulp.src('test/integration/**/*spec.js')
+  gulp.src('test/integration/mugs/spec.js')
   .pipe(protractor({
     configFile: 'test/integration/mugs/config.js'
   }))
@@ -92,9 +92,7 @@ gulp.task('protractor:e2etest', () => {
       child.kill('SIGTERM');
     });
   });
-
 });
-
 
 gulp.task('static:dev', () => {
   gulp.src('app/**/*.html')
@@ -106,10 +104,10 @@ gulp.task('lint:files', ['lint:client', 'lint:server']);
 
 gulp.task('integration:test', ['startservers:test', 'protractor:e2etest']);
 
+
 gulp.task('start', ['startservers:test']);
 gulp.task('buid:css', ['sass']);
 
-// gulp.task('build:dev', ['webpack:dev', 'static:dev', 'lint:files']);
 gulp.task('build:dev', ['webpack:dev', 'static:dev', 'css:dev', 'lint:files']);
 
 gulp.task('default', ['build:dev']);
