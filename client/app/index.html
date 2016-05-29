@@ -11,6 +11,10 @@
 
         <li data-ng-repeat = "error in mugsctrl.errors">{{error.message}}<button data-ng-click="mugsctrl.errors.splice(mugsctrl.errors.indexOf(error),1)">acknowledge</button></li>
 
+
+        <p>counter: {{mugsctrl.service.count}}</p>
+        <button data-ng-click="mugsctrl.serviceAddCount()" || "vinylctrl.serviceAddCount()">COUNT</button>
+
         <mugs-form
           data-button-text="Create Mug!"
           data-action="create"
@@ -25,7 +29,10 @@
                 data-action="update"
                 data-mug="mugs">
                 <button data-ng-click="mugs.editing=false">Cancel</button>
+
             </mugs-form>
+
+
           </mug-list-item>
         </ul>
       </section>

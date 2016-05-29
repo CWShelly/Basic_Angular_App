@@ -1,9 +1,10 @@
 module.exports = function(app) {
-  app.factory('mvResource', ['$http', 'mvHandleError', function($http, mvError) {
+  app.factory('mvResource', ['$http', 'mvHandleError', 'mvCountTracker', function($http, mvError, mvCountTracker) {
     var Resource = function(resourceArr, errorsArr, baseUrl, options) {
       this.data = resourceArr;
       this.url = baseUrl;
       this.errors = errorsArr;
+      this.serviceMinusCount = mvCountTracker.minusCount.bind(mvCountTracker);
       this.options = options || {};
       this.options.errMessages = this.options.errMessages || {};
     };
@@ -33,6 +34,9 @@ module.exports = function(app) {
 
     Resource.prototype.remove = function(resource) {
       return $http.delete(this.url + '/' + resource._id)
+      .then(() => {
+        this.serviceMinusCount();
+      })
     .then(() => {
       this.data.splice(this.data.indexOf(resource), 1);
     }, mvError(this.errors, this.options.errMessages.remove || 'could not remove resource'));
