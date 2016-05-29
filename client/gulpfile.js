@@ -63,7 +63,7 @@ gulp.task('webpack:errorstest', () => {
 .pipe(gulp.dest('./karma_bundles/errors'));
 });
 
-gulp.task('webpack:resourcecreatetest', () => {
+gulp.task('webpack:resourcetest', () => {
   gulp.src('test/unit/entry.js')
   .pipe(webpack(require('./webpack.config.js')
 ))
