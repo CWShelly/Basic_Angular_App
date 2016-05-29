@@ -63,6 +63,13 @@ gulp.task('webpack:errorstest', () => {
 .pipe(gulp.dest('./karma_bundles/errors'));
 });
 
+gulp.task('webpack:resourcecreatetest', () => {
+  gulp.src('test/unit/entry.js')
+  .pipe(webpack(require('./webpack.config.js')
+))
+.pipe(gulp.dest('./karma_bundles/resources'));
+});
+
 gulp.task('startservers:test', () => {
   children.push(cp.fork('server.js'));
   children.push(cp.spawn('webdriver-manager', ['start']));
