@@ -12,8 +12,8 @@
         <li data-ng-repeat = "error in mugsctrl.errors">{{error.message}}<button data-ng-click="mugsctrl.errors.splice(mugsctrl.errors.indexOf(error),1)">acknowledge</button></li>
 
 
-        <p>You've added a total of {{mugsctrl.service.count}} records.</p>
-    
+        <p>You've just added a total of {{mugsctrl.service.count}} records.</p>
+
         <mugs-form
           data-button-text="Create Mug!"
           data-action="create"

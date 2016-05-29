@@ -8,6 +8,10 @@ describe('all the mugs', function() {
     element.all(by.repeater('MugsController as mugsctrl')).getText(function(text) {
       expect(text).toEqual('Got this mug at test place in test city. I fill it with test drink');
     });
+
+    element(by.css('p')).getText(function(text) {
+      expect(text).toEqual('You\'ve just added a total of 1 records');
+    });
   });
 
   it('should create a vinyl', function() {
@@ -17,6 +21,10 @@ describe('all the mugs', function() {
     element(by.buttonText('Create Vinyl!')).click();
     element.all(by.repeater('VinylController as vinylctrl')).getText(function(text) {
       expect(text).toEqual('Picked up test album by test artist at test store');
+    });
+
+    element.all(by.repeater('MugsController as mugsctrl')).getText(function(text) {
+      expect('mugsctrl.service.count').toEqual('You\'ve just added a total of 2 records');
     });
   });
 
