@@ -14,7 +14,9 @@ var clientFiles = ['app/**/*.js', 'server.js', 'gulpfile.js', 'test/**/*.js'];
 gulp.task('sass:dev', () => {
   return gulp.src('./app/style/sass/style.sass')
   .pipe(sourcemaps.init())
-  .pipe(sass())
+  .pipe(sass({
+    includePaths: require('node-bourbon').includePaths
+  }))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest('./app/css'));
 });

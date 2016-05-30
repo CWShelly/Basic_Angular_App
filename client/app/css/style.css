@@ -2,11 +2,17 @@ ul {
   margin: 0;
   padding: 0; }
 
-#vinyllist {
+#vinyllist, .error {
   color: yellow; }
 
+p {
+  color: white; }
+
+body {
+  background-color: #6666ff; }
+
 button {
-  background-color: blue; }
+  background-color: white; }
 
 section ul {
   font-size: 1 em;
