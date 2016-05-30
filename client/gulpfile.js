@@ -15,7 +15,8 @@ gulp.task('sass:dev', () => {
   return gulp.src('./app/style/sass/style.sass')
   .pipe(sourcemaps.init())
   .pipe(sass({
-    includePaths: require('node-bourbon').includePaths
+    // includePaths: require('node-bourbon').includePaths,
+    includePaths: require('node-neat').includePaths
   }))
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest('./app/css'));

@@ -2,6 +2,12 @@ ul {
   margin: 0;
   padding: 0; }
 
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 #vinyllist, .error {
   color: yellow; }
 
@@ -11,11 +17,29 @@ p {
 body {
   background-color: #6666ff; }
 
+input {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  background-color: #4da64d;
+  height: 40px; }
+  input:last-child {
+    margin-right: 0; }
+  input::-webkit-input-placeholder {
+    color: white; }
+  input::-moz-placeholder {
+    color: white; }
+  input:-moz-placeholder {
+    color: white; }
+  input:-ms-input-placeholder {
+    color: white; }
+
 button {
   background-color: white; }
 
 section ul {
-  font-size: 1 em;
+  font-size: .65em;
   color: purple;
   list-style: none; }
 
