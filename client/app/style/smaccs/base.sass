@@ -1,5 +1,6 @@
 
 $myColor: purple
+$myColor2: white
 
 // make buttons this color
 =btn-background($btn-background)
@@ -7,11 +8,22 @@ $myColor: purple
 
 
 p
- color: white
+ color: $myColor2
 
-//usage of node-bourbon
+
 body
-  background-color: tint(blue, 40%)
+  background-color: lighten(blue, 20%)
+
+//usage of node-bourbon and node-neat
+input
+  +span-columns(2)
+  background-color: tint(green, 30%)
+  height: 40px
+  +placeholder
+    color: white
+
+
+
 
 button
   +btn-background(white)
@@ -19,6 +31,6 @@ button
 section
     ul
       li
-      font-size: 1 em
+      font-size: .65em
       color: $myColor
       list-style: none

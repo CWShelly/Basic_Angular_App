@@ -1,13 +1,7 @@
 <form data-ng-submit = "save(mug)">
-     <label for = "place"> Place</label>
-     <input type = "text" name = "place" data-ng-model= "mug.place">
-
-     <label for = "city"> City</label>
-     <input type = "text" name = "city" data-ng-model= "mug.city">
-
-     <label for = "drinkPref"> Drink Pref</label>
-     <input type = "text" name = "drinkPref" data-ng-model= "mug.drinkPref">
-
+     <input type = "text" placeholder="place" name = "place" data-ng-model= "mug.place">
+     <input type = "text" placeholder="city" name = "city" data-ng-model= "mug.city">
+     <input type = "text" placeholder="drink preference" name = "drinkPref" data-ng-model= "mug.drinkPref">
      <button type = "submit" id = "newMug">{{buttonText}}</button>
      <ng-transclude></ng-transclude>
    </form>

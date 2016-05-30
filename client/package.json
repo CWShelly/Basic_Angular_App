@@ -4,6 +4,7 @@
   "description": "",
   "main": "entry.js",
   "dependencies": {
+    "bourbon-neat": "^1.7.4",
     "express": "^4.13.4"
   },
   "devDependencies": {
@@ -11,6 +12,7 @@
     "angular-mocks": "^1.5.5",
     "babel": "^6.5.2",
     "babel-core": "^6.8.0",
+    "bourbon-neat": "^1.7.4",
     "css-loader": "^0.23.1",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
@@ -22,6 +24,7 @@
     "karma-chrome-launcher": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "node-bourbon": "^4.2.8",
+    "node-neat": "^1.7.2",
     "protractor": "^3.3.0",
     "style-loader": "^0.13.1",
     "webpack-stream": "^3.2.0"
