@@ -9,7 +9,7 @@
 
       <section data-ng-controller = "MugsController as mugsctrl" data-ng-init="mugsctrl.getAll()">
 
-        <li data-ng-repeat = "error in mugsctrl.errors">{{error.message}}<button data-ng-click="mugsctrl.errors.splice(mugsctrl.errors.indexOf(error),1)">acknowledge</button></li>
+        <li class="error" data-ng-repeat = "error in mugsctrl.errors">{{error.message}}<button data-ng-click="mugsctrl.errors.splice(mugsctrl.errors.indexOf(error),1)">acknowledge</button></li>
 
 
         <p>You've just added a total of {{mugsctrl.service.count}} records.</p>
