@@ -9,7 +9,7 @@ Note: <Enter>
 
 From the project root directory: <Enter>
 
-1. $ cd client && gulp sass:dev && gulp && gulp start. <Enter>
+1. $ cd client && gulp && gulp start. <Enter>
 2. Open your browser, and navigate to localhost:5000. <Enter>
 
 
