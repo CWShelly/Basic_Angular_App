@@ -1,29 +1,31 @@
 
 $myColor: purple
 $myColor2: white
+$someVar: "x"
+$defaultColor: yellow
 
 // make buttons this color
 =btn-background($btn-background)
   background-color: $btn-background
 
-
 p
  color: $myColor2
+ //Usage of function and operators.
 
+@function x($y, $z)
+  @return $y + $z
 
+//usage of sass built-in function
 body
   background-color: lighten(blue, 20%)
 
-//usage of node-bourbon and node-neat
+//Usage of node-bourbon and node-neat. Interpolation also included.
 input
   +span-columns(2)
   background-color: tint(green, 30%)
-  height: 40px
+  height: x(10px, 30px)
   +placeholder
-    color: white
-
-
-
+    color: #{magenta - red}
 
 button
   +btn-background(white)
