@@ -27,13 +27,13 @@ input {
   input:last-child {
     margin-right: 0; }
   input::-webkit-input-placeholder {
-    color: white; }
+    color: blue; }
   input::-moz-placeholder {
-    color: white; }
+    color: blue; }
   input:-moz-placeholder {
-    color: white; }
+    color: blue; }
   input:-ms-input-placeholder {
-    color: white; }
+    color: blue; }
 
 button {
   background-color: white; }
