@@ -15,12 +15,16 @@ Mugs: <Enter>
 5. To DELETE a mug, click the "Remove Mug" that's next to the record you want to remove. <Enter>
 
 Vinyl: <Enter> <Enter>
-3. To POST a new vinyl record, fill in the fields next to "Abum", "Artist", and "Purchased At", then click "Create Vinyl!". <Enter>
+3. To POST a new vinyl record, fill in the fields next to "Album", "Artist", and "Purchased At", then click "Create Vinyl!". <Enter>
 4. To edit an existing mug record, click the "Edit" button, and make the desired changes via the provided input fields. Save your changes by clicking "Update Vinyl!" If you don't want to edit your vinyl, but you've already clicked "Edit", just click "Cancel". <Enter>
 5. To DELETE a vinyl, click the "Remove vinyl" that's next to the record you want to remove. <Enter>
 
 Integration Testing: <Enter>
 * $gulp integration:test <Enter>
+
+Unit Testing
+* $gulp webpack:resourcetest
+* karma start
 
 Mocha Testing: <Enter>
 1. $cd .. && cd server <Enter>
