@@ -24,3 +24,4 @@ Integration Testing: <Enter>
 
 Unit Testing
 * $gulp webpack:resourcetest
+* karma start
