@@ -29,5 +29,6 @@ module.exports = function(app) {
       });
     };
     this.removeVinyl = remote.remove.bind(remote);
+    this.getAll();
   }]);
 };

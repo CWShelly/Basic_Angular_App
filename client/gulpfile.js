@@ -80,10 +80,11 @@ gulp.task('webpack:counttrackertest', () => {
 .pipe(gulp.dest('./karma_bundles'));
 });
 gulp.task('startservers:test', () => {
+  // process.env.APP_SECRET = 'SECRET';
   children.push(cp.fork('server.js'));
   children.push(cp.spawn('webdriver-manager', ['start']));
   children.push(cp.spawn('mongod', ['--dbpath=./db']));
-  children.push(cp.fork('../server/server', [], { env: { MONGO_URI: mongoUri } }));
+  children.push(cp.fork('../server/server', [], { env: { APP_SECRET:'TESTSECRET', MONGO_URI: mongoUri } }));
 });
 
 gulp.task('protractor:e2etest', () => {
