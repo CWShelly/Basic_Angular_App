@@ -9,7 +9,6 @@ module.exports = function(app) {
         .then((res) => {
           auth.saveToken(res.data.token);
           auth.getUsername();
-        //   $location.path('/mugs' && '/vinyl');
           $location.path('/mugs');
         }, handleError(this.errors, 'Could not create user'));
     };

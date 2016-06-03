@@ -26,7 +26,6 @@ module.exports = function(app) {
       });
     };
     this.removeMug = remote.remove.bind(remote);
-    // debugger;
-    // this.getAll();
+    this.getAll();
   }]);
 };

@@ -8,15 +8,20 @@ var mugRouter = module.exports = Router();
 
 mugRouter.post('/mugs', jwtAuth, jsonParser, (req, res) => {
   var newMug = new Mug(req.body);
+  newMug.collectorId = req.user._id;
   newMug.save((err, data) => {
     if (err) return eH(err, res);
     res.status(200).json(data);
   });
 });
 
-mugRouter.get('/mugs', (req, res) => {
-  Mug.find(null, (err, data) => {
+mugRouter.get('/mugs', jwtAuth, (req, res) => {
+  // console.log(collectorId);
+
+  Mug.find({ collectorId: req.user._id }, (err, data) => {
     if (err) return eH(err, res);
+    if (err)console.log(err);
+
     res.status(200).json(data);
   });
 });

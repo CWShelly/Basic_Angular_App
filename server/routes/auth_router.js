@@ -26,7 +26,7 @@ authRouter.post('/signup', jsonParser, (req, res) => {
 
 authRouter.get('/signin', basicHTTP, (req, res) => {
   User.findOne({ username: req.auth.username }, (err, user) => {
-    if (err) return res.status(500).json({ msg: 'server error' });
+    if (err) return res.status(500).json({ msg: 'server has error' });
     if (!user) return res.status(500).json({ msg: 'not a user' });
     if (!user.compareHash(req.auth.password)) return res.status(500).json({ msg: 'auth failed' });
 

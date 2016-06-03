@@ -8,13 +8,10 @@
 
     <body data-ng-app="mvApp">
 <div data-ng-controller="AuthController as globalAuth" data-ng-init="globalAuth.getUsername()">
+  
   <p data-ng-if="globalAuth.username">Hello: {{globalAuth.username}}<a href data-ng-click="globalAuth.logout()">Logout</a></p>
   <main data-ng-view></main>
 </div>
-
-
-        <!-- <p>You've just added a total of {{mugsctrl.service.count}} records.</p> -->
-
 
         <script type="text/javascript" src="/bundle.js" charset="utf-8"></script>
     </body>

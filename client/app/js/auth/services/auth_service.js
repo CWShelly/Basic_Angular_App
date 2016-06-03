@@ -22,11 +22,10 @@ module.exports = function(app) {
       getUsername: function() {
         return $q(function(resolve, reject) {
           if (this.username) return resolve(this.username);
-          if (!this.getToken()) return reject(new Error('no authtoken'));
+          if (!this.getToken()) return reject(new Error('nos authtoken'));
           $http.get(baseUrl + '/api/profile')
-
           .then((res) => {
-            this.usrname = res.data.username;
+            this.username = res.data.username;
             resolve(res.data.username);
           }, reject);
         }.bind(this));
