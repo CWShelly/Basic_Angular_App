@@ -7,14 +7,15 @@ var vinylRouter = module.exports = Router();
 
 vinylRouter.post('/vinyl', jwtAuth, jsonParser, (req, res) => {
   var newVinyl = new Vinyl(req.body);
+  newVinyl.collectorId = req.user._id;
   newVinyl.save((err, data) => {
     if (err) return eH(err, res);
     res.status(200).json(data);
   });
 });
 
-vinylRouter.get('/vinyl', (req, res) => {
-  Vinyl.find(null, (err, data) => {
+vinylRouter.get('/vinyl', jwtAuth, (req, res) => {
+  Vinyl.find({ collectorId: req.user._id }, (err, data) => {
     if (err) return eH(err, res);
     res.status(200).json(data);
   });
