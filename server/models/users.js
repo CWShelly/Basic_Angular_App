@@ -15,8 +15,8 @@ userSchema.methods.compareHash = function(password) {
   return bcrypt.compareSync(password, this.password);
 };
 
-
 userSchema.methods.generateToken = function() {
+  console.log(process.env.APP_SECRET);
   return jwt.sign({ idd: this._id }, process.env.APP_SECRET);
 };
 

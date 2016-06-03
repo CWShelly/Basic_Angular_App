@@ -1,0 +1,27 @@
+<section data-ng-init="globalAuth.getUsername()">
+
+  <ul id="error">
+    <li data-ng-repeat="error in vinylctrl.errors">{{error.message}}<button data-ng-click="vinylctrl.errors.splice(vinylctrl.errors.indexOf(error), 1)">X</button></li>
+  </ul>
+
+        <vinyl-form
+        data-button-text="Create Vinyl!"
+        data-action="create"
+        data-vinyl="vinylctrl.newVinyl">
+        </vinyl-form>
+
+
+        <ul id = "vinylList">
+        <vinyl-list-item data-ng-repeat = "vinyl in vinylctrl.vinyl" data-vinyl="vinyl">
+      <vinyl-form
+      data-ng-if = "vinyl.editing"
+        data-button-text="Update Vinyl!"
+        data-action="update"
+        data-vinyl="vinyl">
+        <button data-ng-click="vinyl.editing=false">Cancel</button>
+    </vinyl-form>
+  </vinyl-list-item>
+
+        </ul>
+
+</section>

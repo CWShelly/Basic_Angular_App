@@ -3,6 +3,7 @@ const Router = require('express').Router;
 const User = require(__dirname + '/../models/users');
 const jsonParser = require('body-parser').json();
 const basicHTTP = require(__dirname + '/../lib/basic_http');
+const jwtAuth = require(__dirname + '/../lib/jwt_auth');
 var authRouter = new Router();
 
 authRouter.post('/signup', jsonParser, (req, res) => {
@@ -19,8 +20,6 @@ authRouter.post('/signup', jsonParser, (req, res) => {
     var token = user.generateToken();
     if (err) return res.status(500).json({ msg: 'can\'t generate token' });
     res.json({ token });
-
-
   });
 });
 
@@ -37,5 +36,8 @@ authRouter.get('/signin', basicHTTP, (req, res) => {
   });
 });
 
+authRouter.get('/profile', jwtAuth, (req, res) => {
+  res.send({ username: req.user.username });
+});
 
 module.exports = exports = authRouter;

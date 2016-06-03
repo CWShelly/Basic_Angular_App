@@ -1,68 +1,21 @@
 <html>
     <head>
         <meta charset="utf-8">
+          <title>Mugs and Vinyl</title>
+            <link rel="stylesheet" href="style.css">
     </head>
-    <title>Mugs and Vinyl</title>
-    <link rel="stylesheet" href="style.css">
+
+
     <body data-ng-app="mvApp">
-      <main>
-
-      <section data-ng-controller = "MugsController as mugsctrl" data-ng-init="mugsctrl.getAll()">
-
-        <li class="error" data-ng-repeat = "error in mugsctrl.errors">{{error.message}}<button data-ng-click="mugsctrl.errors.splice(mugsctrl.errors.indexOf(error),1)">acknowledge</button></li>
-
-
-        <p>You've just added a total of {{mugsctrl.service.count}} records.</p>
-
-        <mugs-form
-          data-button-text="Create Mug!"
-          data-action="create"
-          data-mug="mugsctrl.newMug">
-      </mugs-form>
-
-        <ul id = "mugList">
-            <mug-list-item data-ng-repeat = "mugs in mugsctrl.mugs" data-mug="mugs">
-              <mugs-form
-              data-ng-if = "mugs.editing"
-                data-button-text="Update Mug!"
-                data-action="update"
-                data-mug="mugs">
-                <button data-ng-click="mugs.editing=false">Cancel</button>
-
-            </mugs-form>
+<div data-ng-controller="AuthController as globalAuth" data-ng-init="globalAuth.getUsername()">
+  <p data-ng-if="globalAuth.username">Hello: {{globalAuth.username}}<a href data-ng-click="globalAuth.logout()">Logout</a></p>
+  <main data-ng-view></main>
+</div>
 
 
-          </mug-list-item>
-        </ul>
-      </section>
-      </main>
+        <!-- <p>You've just added a total of {{mugsctrl.service.count}} records.</p> -->
 
 
-      <section data-ng-controller = "VinylController as vinylctrl" data-ng-init="vinylctrl.getAll()">
-
-        <li data-ng-repeat = "error in vinylctrl.errors">{{error.message}}<button data-ng-click="vinylctrl.errors.splice(vinylctrl.errors.indexOf(error),1)">acknowledge</button></li>
-
-        <vinyl-form
-        data-button-text="Create Vinyl!"
-        data-action="create"
-        data-vinyl="vinylctrl.newVinyl">
-        </vinyl-form>
-
-
-        <ul id = "vinylList">
-        <vinyl-list-item data-ng-repeat = "vinyl in vinylctrl.vinyl" data-vinyl="vinyl">
-      <vinyl-form
-      data-ng-if = "vinyl.editing"
-        data-button-text="Update Vinyl!"
-        data-action="update"
-        data-vinyl="vinyl">
-        <button data-ng-click="vinyl.editing=false">Cancel</button>
-    </vinyl-form>
-  </vinyl-list-item>
-
-        </ul>
-      </section>
- </main>
         <script type="text/javascript" src="/bundle.js" charset="utf-8"></script>
     </body>
 </html>

@@ -1,0 +1,35 @@
+<section data-ng-init="globalAuth.getUsername()">
+
+  <ul id="error">
+    <li data-ng-repeat="error in mugsctrl.errors">{{error.message}}<button data-ng-click="mugsctrl.errors.splice(mugsctrl.errors.indexOf(error), 1)">X</button></li>
+  </ul>
+
+  <mugs-form
+    data-button-text="Create Mug!"
+    data-action="create"
+    data-mug="mugsctrl.newMug">
+</mugs-form>
+
+  <ul id = "mugList">
+      <mug-list-item data-ng-repeat = "mugs in mugsctrl.mugs" data-mug="mugs">
+        <mugs-form
+        data-ng-if = "mugs.editing"
+          data-button-text="Update Mug!"
+          data-action="update"
+          data-mug="mugs">
+          <button data-ng-click="mugs.editing=false">Cancel</button>
+      </mugs-form>
+    </mug-list-item>
+  </ul>
+
+
+  <vinyl-form
+  data-button-text="Create Vinyl!"
+  data-action="create"
+  data-vinyl="vinylctrl.newVinyl">
+  </vinyl-form>
+
+
+
+
+</section>
