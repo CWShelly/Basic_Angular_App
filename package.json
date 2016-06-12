@@ -4,7 +4,8 @@
   "description": "#This is a two resource (mugs and vinyl) CRUD app that uses angular for data binding.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm i && cd client && gulp && gulp start"
   },
   "repository": {
     "type": "git",
