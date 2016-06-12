@@ -111,7 +111,8 @@ gulp.task('lint:files', ['lint:client', 'lint:server']);
 gulp.task('integration:test', ['startservers:test', 'protractor:e2etest']);
 
 
-gulp.task('start', ['startservers:test']);
+// gulp.task('start', ['startservers:test']);
+
 gulp.task('buid:css', ['sass']);
 
 gulp.task('build:dev', ['webpack:dev', 'static:dev', 'css:dev', 'lint:files']);
