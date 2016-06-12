@@ -1,1 +1,0 @@
-web: npm i && cd client && npm i && gulp && cd .. && node index.js
