@@ -1,0 +1,41 @@
+{
+  "name": "Basic_Angular_App",
+  "version": "1.0.0",
+  "description": "#This is a two resource (mugs and vinyl) CRUD app that uses angular for data binding.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CWShelly/Basic_Angular_App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CWShelly/Basic_Angular_App/issues"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.6",
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "jsonwebtoken": "^7.0.0",
+    "mongoose": "^4.4.17",
+      "angular": "^1.5.5",
+        "angular-route": "^1.5.6",
+        "webpack-stream": "^3.2.0",
+        "bourbon-neat": "^1.7.4",
+        "css-loader": "^0.23.1",
+        "gulp": "^3.9.1",
+        "gulp-eslint": "^2.0.0",
+        "gulp-protractor": "^2.3.0",
+        "gulp-sass": "^2.3.1",
+        "gulp-sourcemaps": "^1.6.0",
+        "node-bourbon": "^4.2.8",
+        "node-neat": "^1.7.2",
+        "style-loader": "^0.13.1"
+
+  },
+  "homepage": "https://github.com/CWShelly/Basic_Angular_App#readme"
+}
