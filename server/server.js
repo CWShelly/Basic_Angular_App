@@ -1,10 +1,10 @@
 
 // process.env.APP_SECRET = 'secretymcsecret';
-if (!process.env.APP_SECRET) {
+// if (!process.env.APP_SECRET) {
   // process.env.APP_SECRET = 'aSecret';
   // console.log(process.env.APP_SECRET);
-  throw new Error('you have to set the app secret environment variable');
-}
+//   throw new Error('you have to set the app secret environment variable');
+// }
 
 
 // process.env.APP_SECRET ? console.log('got app secret') : process.env.APP_SECRET = 'secret';
