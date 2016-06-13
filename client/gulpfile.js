@@ -80,13 +80,13 @@ gulp.task('webpack:counttrackertest', () => {
 .pipe(gulp.dest('./karma_bundles'));
 });
 
-gulp.task('startservers:test', () => {
-  // process.env.APP_SECRET = 'SECRET';
-  children.push(cp.fork('server.js'));
-  children.push(cp.spawn('webdriver-manager', ['start']));
-  children.push(cp.spawn('mongod', ['--dbpath=./db']));
-  children.push(cp.fork('../server/server', [], { env: { APP_SECRET:'TESTSECRET', MONGO_URI: mongoUri } }));
-});
+// gulp.task('startservers:test', () => {
+//   // process.env.APP_SECRET = 'SECRET';
+//   children.push(cp.fork('server.js'));
+//   children.push(cp.spawn('webdriver-manager', ['start']));
+//   children.push(cp.spawn('mongod', ['--dbpath=./db']));
+//   children.push(cp.fork('../server/server', [], { env: { APP_SECRET:'TESTSECRET', MONGO_URI: mongoUri } }));
+// });
 
 gulp.task('protractor:e2etest', () => {
   gulp.src('test/integration/mugs/spec.js')
@@ -111,7 +111,8 @@ gulp.task('lint:files', ['lint:client', 'lint:server']);
 gulp.task('integration:test', ['startservers:test', 'protractor:e2etest']);
 
 
-gulp.task('start', ['startservers:test']);
+// gulp.task('start', ['startservers:test']);
+
 gulp.task('buid:css', ['sass']);
 
 gulp.task('build:dev', ['webpack:dev', 'static:dev', 'css:dev', 'lint:files']);

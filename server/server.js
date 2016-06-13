@@ -18,4 +18,4 @@ if (!process.env.APP_SECRET) {
 const app = require(__dirname + '/_server.js');
 const PORT = 4000;
 
-app(PORT, 'mongodb://localhost/2R_db', console.log('server is up on ' + PORT));
+app(PORT, process.env.MONGODB_URI || 'mongodb://localhost/2R_db', console.log('server is up on ' + PORT));
